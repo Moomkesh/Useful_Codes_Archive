@@ -14,7 +14,7 @@ def generate_lagged_dataset(df, feature_names, target_column, num_lags):
     # Generate lag features for each feature
     lagged_features = []
     for feature in feature_names:
-        for lag in range(0, num_lags + 1):  # Start from 1 to num_lags
+        for lag in range( num_lags + 1,0,-1):  # Start from 1 to num_lags
             lag_col = f"{feature}_Lag_{lag}"
             df_lagged[lag_col] = df_lagged[feature].shift(lag)
             lagged_features.append(lag_col)
